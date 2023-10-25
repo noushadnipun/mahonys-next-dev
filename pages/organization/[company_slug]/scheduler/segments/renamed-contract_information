@@ -1,0 +1,138 @@
+import Link from 'next/link';
+import BsModal from '@/components/modal/BsModal';
+import SelectInput from '@/components/common/form/SelectInput';
+import TextInput from '@/components/common/form/TextInput';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+
+
+const ContractInformation = () => {
+    return (
+        <>
+            <div className='w-100 mt-2 px-2 mt-2 pt-5'>
+                <div className=" d-flex justify-content-between">
+                    <p className='m-0'>
+                        <span className='fs-6 fw-semibold'>
+                            Maxwell Ronnie</span> <span>(4568), Member since: June'23
+                        </span>
+                    </p>
+                    <BsModal btnVariant={"transparent"} btnName={<i className="bi bi-pencil-square fs-6"></i>}>
+                        {/* Start Input */}
+                        <SelectInput
+                            props={["ariful", "rakib", "arafat"]}
+                            label={"Customer"}
+                            name="customer"
+                        />
+                        <SelectInput
+                            props={["Potato", "whept", "Sugar"]}
+                            label={"CommodityType"}
+                            name="commodityType"
+                        />
+
+                        <TextInput
+                            props={{
+                                label: "Commodity Grade",
+                                type: "text",
+                                name: "commodityGrade",
+                            }}
+                        />
+                        <TextInput
+                            props={{
+                                label: "Pickup Location",
+                                type: "text",
+                                name: "pickupLocation",
+                            }}
+                        />
+                        <TextInput
+                            props={{
+                                label: "Drop-off Location",
+                                type: "text",
+                                name: "dropoffLocation",
+                            }}
+                        />
+                        <TextInput
+                            props={{ label: "Total KMs", type: "numbers", name: "totalKMS" }}
+                        />
+                        <TextInput
+                            props={{ label: "Rate", type: "number", name: "rate" }}
+                        />
+                        <TextInput
+                            props={{
+                                label: "Subcontractor Rate",
+                                type: "number",
+                                name: "subcontractorRate",
+                            }}
+                        />
+                        <TextInput
+                            props={{
+                                label: "Delivery Start Day",
+                                type: "date",
+                                name: "deliveryStartDay",
+                            }}
+                        />
+
+                        <TextInput
+                            props={{
+                                label: "Delivery End Day (optional)",
+                                type: "date",
+                                name: "deliveryEndDay",
+                            }}
+                        />
+                        <TextInput
+                            props={{
+                                label: "Estimated Tonnage",
+                                type: "number",
+                                name: "Tonnage",
+                            }}
+                        />
+                        <TextInput
+                            props={{
+                                label: "Notes for Driver",
+                                type: "text",
+                                name: "noteDriver",
+                            }}
+                        />
+                        <TextInput
+                            props={{
+                                label: "Notes for Admin",
+                                type: "text",
+                                name: "noteAdmin",
+                            }}
+                        />
+
+                        {/* End Input  */}
+                    </BsModal>
+                </div>
+                <p className='m-0'>
+                    <span className='fs-6 fw-semibold'>Start Date</span>
+                    <span>12/07/2023 12:30PM </span>
+                    <span className='fw-semibold'>End Date:</span>
+                    <span>14/07/2023 5:30PM</span>
+                </p>
+                <p className='m-0'><span className=' fw-semibold'>Pick up:</span> <span>$9 Campbells River Road</span></p>
+                <p className='m-0'><span className=' fw-semibold'>Destination:</span> <span>38 Girvan Grove</span></p>
+                <p className='m-0'><span className=' fw-semibold'>Commodity:</span> <span>Wheat</span></p>
+                <p className='m-0'><span className=' fw-semibold'>Total Contracts:</span> <span>500MT</span></p>
+                <p className='m-0'><span className=' fw-semibold'>Remaining Contracts:</span> <span>160MT</span></p>
+                <p className='m-0'>
+                    <span className=' fw-semibold'>
+                        Loads Assigned:</span> <span><Link href={"#"}>8 Loads</Link>
+                    </span>
+                </p>
+                <div className="w-100 d-flex bg-primary  text-white">
+                    <DropdownButton active="false" autoClose="false" variant='transparent' className="w-100 text-white border-0 btn-outline-none" size="sm" id="dropdown-item-button" title="Dropdown button">
+                        <Dropdown.ItemText autoClose={false}>
+                            <p className='m-0'><span className=' fw-semibold'>Start Date</span> <span>12/07/2023 </span><span className='fw-semibold'>End Date:</span><span>14/07/2023 5:30PM</span></p>
+                            <p className='m-0'><span className=' fw-semibold'>Pick up:</span> <span>$9 Campbells River Road</span></p>
+                            <p className='m-0'><span className=' fw-semibold'>Destination:</span> <span>38 Girvan Grove</span></p>
+                            <p className='m-0'><span className=' fw-semibold'>Commodity:</span> <span>Wheat</span></p>
+                            <p className='m-0'><span className=' fw-semibold'>Total Contracts:</span> <span>500MT</span></p>
+                            <p className='m-0'><span className=' fw-semibold'>Remaining Contracts:</span> <span>160MT</span></p></Dropdown.ItemText>
+                    </DropdownButton>
+                </div>
+            </div>
+        </>
+    );
+}
+
+export default ContractInformation;

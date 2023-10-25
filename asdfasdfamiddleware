@@ -1,0 +1,26 @@
+import { NextResponse } from 'next/server'
+import { NextRequest } from 'next/server'
+// This function can be marked `async` if using `await` inside
+export function middleware(request) {
+    return NextResponse.redirect(new URL('/', request.url))
+
+    //console.log('asdfasd')
+
+    const isPublicPath = path === '/auth/signin' || path === '/auth/signup'
+    const token = request.cookies.get('auth_token')?.value || ''
+
+    if (isPublicPath && token) {
+        return NextResponse.redirect(new URL('/pp', request.nextUrl))
+    }
+
+    if (!isPublicPath && !token) {
+        return NextResponse.redirect(new URL('/', request.nextUrl))
+    }
+
+
+}
+
+
+export const config = {
+    matcher: ['/organization'],
+}
